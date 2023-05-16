@@ -65,7 +65,7 @@ clean: ## Clean up also packages
 	$(DONE)
 
 .PHONY: devbuild
-devbuild: prepare ## Build a dev version, bypassing mock (useful for debugging RPM build issues)
+devbuild: clean ## Build a dev version, bypassing mock (useful for debugging RPM build issues)
 	rpmbuild -ba --define "%_topdir $(CWD)" --define "__version $(VERSION)" --define "__release $(BRANCH).$(COMMIT).$(BUILD_NUMBER)" $(CWD)/$(SPEC)
 	$(DONE)
 
